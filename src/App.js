@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { AnimalFeed, Feed, Navbar, ScienceFeed, SpaceFeed, WorldFeed, HealthFeed, TechnologyFeed } from "./components";
+import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Box, Stack } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Stack px={5} mt={2}>
+        <Box>
+          <Routes>
+            <Route path="/" element={<Feed />} />
+            <Route path="/Animal Kingdom" element={<AnimalFeed />} />
+            <Route path="/Science" element={<ScienceFeed />} />
+            <Route path="/Space & Universe" element={<SpaceFeed />} />
+            <Route path="/Our World" element={<WorldFeed />} />
+            <Route path="/Health & Hygiene" element={<HealthFeed />} />
+            <Route path="/Technology & Innovation" element={<TechnologyFeed />} />
+          </Routes>
+        </Box>
+      </Stack>
+    </BrowserRouter>
   );
 }
 
